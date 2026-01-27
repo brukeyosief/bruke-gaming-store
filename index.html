@@ -25,7 +25,6 @@
         .product button { padding: 10px 20px; background: #ff6f61; border: none; border-radius: 5px; color: #fff; cursor: pointer; }
 
         .about { text-align: center; max-width: 800px; margin: 0 auto; }
-
         .contact { text-align: center; }
         .contact form { display: flex; flex-direction: column; max-width: 400px; margin: 0 auto; }
         .contact input, .contact textarea { padding: 10px; margin-bottom: 15px; border-radius: 5px; border: none; }
@@ -49,19 +48,19 @@
         <h2 class="section-title">Our Store</h2>
         <div class="store">
             <div class="product">
-                <img src="https://via.placeholder.com/200" alt="Game Item 1">
+                <img src="https://i.imgur.com/Lm0QFhO.png" alt="Game Item 1">
                 <h3>Game Item 1</h3>
                 <p>$19.99</p>
                 <button>Add to Cart</button>
             </div>
             <div class="product">
-                <img src="https://via.placeholder.com/200" alt="Game Item 2">
+                <img src="https://i.imgur.com/3BHzWGb.png" alt="Game Item 2">
                 <h3>Game Item 2</h3>
                 <p>$29.99</p>
                 <button>Add to Cart</button>
             </div>
             <div class="product">
-                <img src="https://via.placeholder.com/200" alt="Game Item 3">
+                <img src="https://i.imgur.com/5RGR2bP.png" alt="Game Item 3">
                 <h3>Game Item 3</h3>
                 <p>$39.99</p>
                 <button>Add to Cart</button>
@@ -126,7 +125,10 @@
                 itemDiv.style.display = 'flex';
                 itemDiv.style.justifyContent = 'space-between';
                 itemDiv.style.marginBottom = '10px';
-                itemDiv.innerHTML = `${item.product} - $${item.price.toFixed(2)} <button onclick="removeItem(${index})" style="background:red;color:white;border:none;padding:2px 5px;border-radius:3px;cursor:pointer;">Remove</button>`;
+                itemDiv.innerHTML = `
+                    ${item.product} - $${item.price.toFixed(2)}
+                    <button onclick="removeItem(${index})" style="background:red;color:white;border:none;padding:2px 5px;border-radius:3px;cursor:pointer;">Remove</button>
+                `;
                 cartItemsDiv.appendChild(itemDiv);
             });
             cartTotal.innerText = `Total: $${total.toFixed(2)}`;
@@ -148,5 +150,4 @@
         });
     </script>
 
-</body>
-</html>
+</bo
