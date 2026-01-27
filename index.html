@@ -1,153 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bruke Gaming Store</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-        body { background-color: #121212; color: #fff; }
-        a { text-decoration: none; color: inherit; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bruke Gaming Store</title>
 
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #1f1f1f; }
-        header h1 { color: #ff6f61; }
-        nav a { margin: 0 15px; color: #fff; font-weight: bold; }
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+body { background:#121212; color:white; }
+header { display:flex; justify-content:space-between; align-items:center; padding:20px; background:#1f1f1f; }
+header h1 { color:#ff6f61; }
+nav a { margin:0 15px; color:white; font-weight:bold; text-decoration:none; }
+section { padding:60px 20px; }
+.section-title { text-align:center; color:#ff6f61; margin-bottom:30px; }
 
-        section { padding: 60px 20px; }
-        .section-title { font-size: 2em; color: #ff6f61; margin-bottom: 30px; text-align: center; }
+.store { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+.product { background:#1f1f1f; padding:20px; border-radius:15px; text-align:center; }
+.product img { width:100%; border-radius:10px; }
+.product button { margin-top:10px; padding:10px; background:#ff6f61; border:none; color:white; border-radius:5px; cursor:pointer; }
 
-        .store { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .product { background: #1f1f1f; padding: 20px; border-radius: 15px; text-align: center; transition: transform 0.3s; }
-        .product:hover { transform: scale(1.05); }
-        .product img { max-width: 100%; border-radius: 10px; margin-bottom: 15px; }
-        .product h3 { margin-bottom: 10px; color: #ffb347; }
-        .product p { margin-bottom: 15px; }
-        .product button { padding: 10px 20px; background: #ff6f61; border: none; border-radius: 5px; color: #fff; cursor: pointer; }
+#cart-items div { display:flex; justify-content:space-between; margin-bottom:10px; }
 
-        .about { text-align: center; max-width: 800px; margin: 0 auto; }
-        .contact { text-align: center; }
-        .contact form { display: flex; flex-direction: column; max-width: 400px; margin: 0 auto; }
-        .contact input, .contact textarea { padding: 10px; margin-bottom: 15px; border-radius: 5px; border: none; }
-        .contact button { padding: 10px; background: #ff6f61; border: none; border-radius: 5px; color: #fff; cursor: pointer; }
-
-        footer { text-align: center; padding: 20px; background: #1f1f1f; color: #888; }
-    </style>
+footer { text-align:center; padding:20px; background:#1f1f1f; color:#888; }
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Bruke Gaming Store</h1>
-        <nav>
-            <a href="#store">Store</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<header>
+<h1>Bruke Gaming Store</h1>
+<nav>
+<a href="#store">Store</a>
+<a href="#cart">Cart</a>
+</nav>
+</header>
 
-    <section id="store">
-        <h2 class="section-title">Our Store</h2>
-        <div class="store">
-            <div class="product">
-                <img src="https://i.imgur.com/Lm0QFhO.png" alt="Game Item 1">
-                <h3>Game Item 1</h3>
-                <p>$19.99</p>
-                <button>Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="https://i.imgur.com/3BHzWGb.png" alt="Game Item 2">
-                <h3>Game Item 2</h3>
-                <p>$29.99</p>
-                <button>Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="https://i.imgur.com/5RGR2bP.png" alt="Game Item 3">
-                <h3>Game Item 3</h3>
-                <p>$39.99</p>
-                <button>Add to Cart</button>
-            </div>
-        </div>
-    </section>
+<section id="store">
+<h2 class="section-title">Store</h2>
+<div class="store">
 
-    <section id="cart">
-        <h2 class="section-title">Your Cart</h2>
-        <div id="cart-items" style="max-width:600px;margin:0 auto 20px auto;"></div>
-        <p id="cart-total" style="text-align:center;font-weight:bold;">Total: $0</p>
-        <div style="text-align:center;">
-            <button id="checkout-btn" style="padding:10px 20px;background:#ff6f61;color:#fff;border:none;border-radius:5px;cursor:pointer;">Checkout</button>
-        </div>
-    </section>
+<div class="product">
+<img src="https://picsum.photos/200?1">
+<h3>Gaming Headset</h3>
+<p>$25</p>
+<button>Add to Cart</button>
+</div>
 
-    <section id="about">
-        <h2 class="section-title">About Bruke</h2>
-        <div class="about">
-            <p>Welcome to Bruke Gaming Store! We provide the coolest gaming items, accessories, and collectibles for gamers of all kinds. Our goal is to make your gaming experience epic and fun!</p>
-        </div>
-    </section>
+<div class="product">
+<img src="https://picsum.photos/200?2">
+<h3>RGB Mouse</h3>
+<p>$15</p>
+<button>Add to Cart</button>
+</div>
 
-    <section id="contact">
-        <h2 class="section-title">Contact Us</h2>
-        <div class="contact">
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
+<div class="product">
+<img src="https://picsum.photos/200?3">
+<h3>Gaming Keyboard</h3>
+<p>$45</p>
+<button>Add to Cart</button>
+</div>
 
-    <footer>
-        &copy; 2026 Bruke Gaming Store. All rights reserved.
-    </footer>
+</div>
+</section>
 
-    <script>
-        let cart = [];
-        const buttons = document.querySelectorAll('.product button');
-        const cartItemsDiv = document.getElementById('cart-items');
-        const cartTotal = document.getElementById('cart-total');
-        const checkoutBtn = document.getElementById('checkout-btn');
+<section id="cart">
+<h2 class="section-title">Your Cart</h2>
+<div id="cart-items"></div>
+<p id="cart-total">Total: $0</p>
+<button id="checkout-btn">Checkout</button>
+</section>
 
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                const product = button.parentElement.querySelector('h3').innerText;
-                const price = parseFloat(button.parentElement.querySelector('p').innerText.replace('$',''));
-                cart.push({ product, price });
-                updateCart();
-            });
-        });
+<footer>
+© 2026 Bruke Gaming Store
+</footer>
 
-        function updateCart() {
-            cartItemsDiv.innerHTML = '';
-            let total = 0;
-            cart.forEach((item, index) => {
-                total += item.price;
-                const itemDiv = document.createElement('div');
-                itemDiv.style.display = 'flex';
-                itemDiv.style.justifyContent = 'space-between';
-                itemDiv.style.marginBottom = '10px';
-                itemDiv.innerHTML = `
-                    ${item.product} - $${item.price.toFixed(2)}
-                    <button onclick="removeItem(${index})" style="background:red;color:white;border:none;padding:2px 5px;border-radius:3px;cursor:pointer;">Remove</button>
-                `;
-                cartItemsDiv.appendChild(itemDiv);
-            });
-            cartTotal.innerText = `Total: $${total.toFixed(2)}`;
-        }
+<script>
+let cart = [];
+const buttons = document.querySelectorAll(".product button");
+const cartItems = document.getElementById("cart-items");
+const cartTotal = document.getElementById("cart-total");
 
-        function removeItem(index) {
-            cart.splice(index, 1);
-            updateCart();
-        }
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const product = btn.parentElement.querySelector("h3").innerText;
+    const price = parseFloat(btn.parentElement.querySelector("p").innerText.replace("$",""));
+    cart.push({product, price});
+    updateCart();
+  });
+});
 
-        checkoutBtn.addEventListener('click', () => {
-            if(cart.length === 0){
-                alert('Your cart is empty!');
-            } else {
-                alert('Thanks for your order! Total: $' + cart.reduce((sum,item)=>sum+item.price,0).toFixed(2));
-                cart = [];
-                updateCart();
-            }
-        });
-    </script>
+function updateCart(){
+  cartItems.innerHTML = "";
+  let total = 0;
 
-</bo
+  cart.forEach((item, index) => {
+    total += item.price;
+    cartItems.innerHTML += `
+      <div>
+        ${item.product} - $${item.price}
+        <button onclick="removeItem(${index})">X</button>
+      </div>`;
+  });
+
+  cartTotal.innerText = "Total: $" + total;
+}
+
+function removeItem(i){
+  cart.splice(i,1);
+  updateCart();
+}
+
+document.getElementById("checkout-btn").addEventListener("click", () => {
+  if(cart.length === 0){
+    alert("Cart is empty!");
+  } else {
+    alert("Order placed! Total: $" + cart.reduce((s,i)=>s+i.price,0));
+    cart = [];
+    updateCart();
+  }
+});
+</script>
+
+</body>
+</html>
