@@ -6,94 +6,150 @@
 <title>Bruke Gaming Store</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-body { background: #121212; color: #fff; }
+body { background: #121212; color: #fff; line-height: 1.5; }
+a { text-decoration: none; color: inherit; }
+
 header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #1f1f1f; }
 header h1 { color: #ff6f61; }
-nav a { margin: 0 15px; color: white; text-decoration: none; font-weight: bold; }
+nav a { margin: 0 15px; color: #fff; font-weight: bold; }
+
 section { padding: 60px 20px; }
-.section-title { text-align: center; color: #ff6f61; margin-bottom: 30px; font-size: 2em; }
+.section-title { font-size: 2em; text-align: center; color: #ff6f61; margin-bottom: 30px; }
+
 .store { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
 .product { background: #1f1f1f; padding: 20px; border-radius: 15px; text-align: center; transition: transform 0.3s; }
 .product:hover { transform: scale(1.05); }
-.product img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
-.product h3 { color: #ffb347; margin-bottom: 10px; }
+.product img { max-width: 100%; border-radius: 10px; margin-bottom: 15px; }
+.product h3 { margin-bottom: 10px; color: #ffb347; }
 .product p { margin-bottom: 15px; }
-.product button { padding: 10px 20px; background: #ff6f61; border: none; color: white; border-radius: 5px; cursor: pointer; }
+.product button { padding: 10px 20px; background: #ff6f61; border: none; border-radius: 5px; color: #fff; cursor: pointer; }
 .product button:hover { opacity: 0.8; }
-#cart-items div { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-#cart-items img { width: 40px; height: 40px; border-radius: 5px; margin-right: 10px; }
-footer { text-align: center; padding: 20px; background: #1f1f1f; color: #888; margin-top:50px; }
-.associates { max-width: 600px; margin: 0 auto; text-align: center; color: #fff; }
-.associates ul { list-style: none; padding: 0; }
-.associates li { margin-bottom: 5px; color: #ffb347; }
+
+#cart-items div { display: flex; justify-content: space-between; margin-bottom: 10px; }
+#checkout-btn { padding: 10px 20px; background: #ff6f61; border: none; color: #fff; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+#checkout-btn:hover { opacity: 0.8; }
+
+.associates { max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; text-align: center; }
+.associate-card { background: #1f1f1f; padding: 20px; border-radius: 15px; width: 220px; transition: transform 0.3s, box-shadow 0.3s; color: #ffb347; }
+.associate-card:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(255,111,97,0.4); color: #fff; }
+.associate-card h3 { margin-bottom: 10px; }
+.associate-card p { margin-bottom: 5px; }
+
+footer { text-align: center; padding: 20px; background: #1f1f1f; color: #888; }
 </style>
 </head>
 <body>
 
 <header>
-<h1>Bruke Gaming Store</h1>
-<nav>
-<a href="#store">Store</a>
-<a href="#cart">Cart</a>
-<a href="#associates">Associates</a>
-</nav>
+  <h1>Bruke Gaming Store</h1>
+  <nav>
+    <a href="#store">Store</a>
+    <a href="#cart">Cart</a>
+    <a href="#associates">Associates</a>
+  </nav>
 </header>
 
+<!-- STORE SECTION -->
 <section id="store">
-<h2 class="section-title">Store</h2>
-<div class="store">
-<!-- Dragon Cannelloni -->
-<div class="product">
-<img src="https://chat.google.com/u/0/api/get_attachment_url?url_type=FIFE_URL&content_type=image%2Fpng&attachment_token=AOo0EEUtMD0VMI80HrAOVvUoO9D8tGPzkftyAGjiieot6pRWzLAw71YDDjqEFeCdfWkpiFAJuwriS5fufPj5L6N%2FwZxjMGgoY%2BmtgMt4PLivSVLlgncftVwPW%2F68o7MwiCho3ikTmp0SGGCWtDu52t48zBjNtgaxWJyWgIbQ28qCQE8eKbbpkaHxYf57ImNMcScLag6C0Ee7kZZHgImjwQp8PdSNEnl8ytAd%2BI8tNmVhlx0cc8gH1Icu%2F%2BRj62PBAyYXSbFcvrduCp%2Bk4QEsE%2Bj5%2FxnhqOIifzTz9hoKVJJlxxCdSdwg01n0rWnEZc7oXhQBc8Po1O15vp1d9ahuIjV%2B%2FstQgwZKwMX%2FHyt7rm1vKDSJ%2FXRrQi7XUD9RKncWi6Gy9H1iBw7NYrwF0pS76%2BkU%2BUZl4e9tpOc1Gsx7bxlH8BjXufQV4WC2SThFHFsMdgt9jgDniUDxfitDlH5UkLgJhjxkqgwDaqwMqNbPmnR%2BRK%2BOw6yvxPwDFN14O9NmjCXFEAyNgq8Jz2ljVdRD6ltc2pl%2Fdr0gHBEYrbLQ97Q6u4WM7AZUJANDXVjOTD3FmAqlITdoVyJPUWI8VL97%2FIvWyOQF6X%2Fs3D3%2FrPDCwRLi4dgFhg%3D%3D&allow_caching=true&sz=w512" alt="Dragon Cannelloni with Lava + Taco Trait">
-<h3>Dragon Cannelloni with Lava + Taco Trait</h3>
-<p>$400.00</p>
-<button>Add to Cart</button>
-</div>
-
-<!-- Cursed Spaggetti Toilet -->
-<div class="product">
-<img src="https://chat.google.com/u/0/api/get_attachment_url?url_type=FIFE_URL&content_type=image%2Fpng&attachment_token=AOo0EEXMPXJt4MoRDVf09BLOfEBizuQKI5AYwWX%2Fk5ne4N%2Br2Gs8rkB86FODqknUrouPm1P%2FRfHkiIywUGX0h84j4FJobnHY2CClfrAGJjyu8vb%2BY4m1%2FiTyrQ%2FRUrnNhdFGuTm%2Fg294%2Beb4JEg%2B24qxD4y71dloTTlErhhb%2F9JZUBi14quHB32lksmYGaVra0vzwwYnaXUQ6fBcbNAl%2BtnF7rb1ltWqck%2BvbU7NBu9JRpCy3au%2F4VHVLreWRdDiAwbf8WMCqwmnx8vN%2B2ugYuemsNUH75MtL6kGfDo%2B3CP%2B1goMxQNGkKzmQRx6DEaUaI5b9iYpsCnYZGZduTmHHan1Lglwl5CZODro%2Fg0PvHPoEUUl%2BAq8M52XLm8dZkZDJ1OMVH%2BbqL0eBG2CKXWeJzsF19koJQfYdKRBY9LefIOaZGdf9fJdo5ZwM1o5rAL6mhNY%2BLVPkEWoSFnHMHNmUp5BwICvUdy8JT5v3832brXC3kQZdQ%2B9cNiOmYmTz3nuOZEalO7Hz5rltuHOcPRXYZme40ARc71%2FNj7TI8FBM%2Fv4vF5MrC7%2B9tFw7iybQPWJ%2F1UEyvBSg2h6NZCPnwx8B%2F0%2BACu%2F0zokU5PU2e3qxdTtg5sFRQ%3D%3D&allow_caching=true&sz=w512" alt="Cursed Spaggetti Toilet">
-<h3>Cursed Spaggetti Toilet</h3>
-<p>$37.00</p>
-<button>Add to Cart</button>
-</div>
-
-<!-- Kechtep and Mustard -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFGzBtu0C5weI4v9lj0on8ovdiinR_mWgv7A&s" alt="Kechtep and Mustard 127m">
-<h3>Kechtep and Mustard 127m</h3>
-<p>$27.00</p>
-<button>Add to Cart</button>
-</div>
-
-</div>
+  <h2 class="section-title">Our Store</h2>
+  <div class="store">
+    <div class="product">
+      <img src="https://via.placeholder.com/200?text=Dragon+Cannelloni" alt="Dragon Cannelloni">
+      <h3>Dragon Cannelloni</h3>
+      <p>$400.00</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200?text=Cursed+Spaghetti+Toilet" alt="Cursed Spaghetti Toilet">
+      <h3>Cursed Spaghetti Toilet</h3>
+      <p>$37.00</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFGzBtu0C5weI4v9lj0on8ovdiinR_mWgv7A&s" alt="Ketchup & Mustard">
+      <h3>Ketchup & Mustard</h3>
+      <p>$27.00</p>
+      <button>Add to Cart</button>
+    </div>
+  </div>
 </section>
 
+<!-- CART SECTION -->
 <section id="cart">
-<h2 class="section-title">Your Cart</h2>
-<div id="cart-items"></div>
-<p id="cart-total">Total: $0.00</p>
-<button id="checkout-btn">Checkout</button>
+  <h2 class="section-title">Your Cart</h2>
+  <div id="cart-items"></div>
+  <p id="cart-total">Total: $0.00</p>
+  <button id="checkout-btn">Checkout</button>
 </section>
 
+<!-- ASSOCIATES SECTION -->
 <section id="associates">
-<h2 class="section-title">Our Associates</h2>
-<div class="associates">
-<ul>
-<li>Jude Salmon</li>
-<li>Wedeb Abraham</li>
-<li>Sander Spikkeland</li>
-<li>Grover Nickel</li>
-<li>Luke Cole</li>
-</ul>
-</div>
+  <h2 class="section-title">Our Associates</h2>
+  <div class="associates">
+    <div class="associate-card">
+      <h3>Bruke Yosief</h3>
+      <p>CEO</p>
+      <p>Runs website, YouTube channel, treasure, finance, revenue</p>
+    </div>
+    <div class="associate-card">
+      <h3>Jacob Robertson</h3>
+      <p>Software Engineer</p>
+      <p>AI, tech, corporate manager</p>
+    </div>
+    <div class="associate-card">
+      <h3>Blessing Naomi</h3>
+      <p>Social Media Advertising</p>
+      <p>Handles all advertising and social media campaigns</p>
+    </div>
+    <div class="associate-card">
+      <h3>Sander Spikkeland</h3>
+      <p>Associate</p>
+      <p>Contributes to projects and collaborations</p>
+    </div>
+    <div class="associate-card">
+      <h3>Jude Mills</h3>
+      <p>Graphic Designing & Advertisement</p>
+      <p>Merchandise, marketing, and brand visuals</p>
+    </div>
+    <div class="associate-card">
+      <h3>Grover Nickel</h3>
+      <p>3D Designing & Merchandise</p>
+      <p>Creates 3D models and merchandise designs</p>
+    </div>
+    <div class="associate-card">
+      <h3>Eli Stephens</h3>
+      <p>Human Resources & Chief of Stock</p>
+      <p>Manages staff and oversees inventory</p>
+    </div>
+    <div class="associate-card">
+      <h3>Jude Salomone</h3>
+      <p>Chief of Advertisement & Corporate Lawyer</p>
+      <p>Oversees advertising strategy and legal affairs</p>
+    </div>
+    <div class="associate-card">
+      <h3>Wedeb</h3>
+      <p>Advertisement & Stock</p>
+      <p>Manages advertising and oversees stock</p>
+    </div>
+    <div class="associate-card">
+      <h3>Roman Mackie</h3>
+      <p>Security Team</p>
+      <p>Ensures safety and security of staff and assets</p>
+    </div>
+    <div class="associate-card">
+      <h3>Luke Coyle</h3>
+      <p>Security Team</p>
+      <p>Assists in maintaining security and safety protocols</p>
+    </div>
+  </div>
 </section>
 
 <footer>
-&copy; 2026 Bruke Gaming Store
+  &copy; 2026 Bruke Gaming Store
 </footer>
 
 <script>
+// CART FUNCTIONALITY
 let cart = [];
 const buttons = document.querySelectorAll(".product button");
 const cartItems = document.getElementById("cart-items");
@@ -104,25 +160,24 @@ buttons.forEach(btn => {
   btn.addEventListener("click", () => {
     const product = btn.parentElement.querySelector("h3").innerText;
     const price = parseFloat(btn.parentElement.querySelector("p").innerText.replace("$",""));
-    const imgSrc = btn.parentElement.querySelector("img").src;
-    cart.push({product, price, imgSrc});
+    cart.push({product, price});
     updateCart();
   });
 });
 
-function updateCart(){
+function updateCart() {
   cartItems.innerHTML = "";
   let total = 0;
   cart.forEach((item, index) => {
     total += item.price;
     const div = document.createElement("div");
-    div.innerHTML = `<img src="${item.imgSrc}" alt="${item.product}"> ${item.product} - $${item.price.toFixed(2)} <button onclick="removeItem(${index})">X</button>`;
+    div.innerHTML = `${item.product} - $${item.price.toFixed(2)} <button onclick="removeItem(${index})" style="background:red;color:white;border:none;padding:2px 5px;border-radius:3px;cursor:pointer;">Remove</button>`;
     cartItems.appendChild(div);
   });
   cartTotal.innerText = "Total: $" + total.toFixed(2);
 }
 
-function removeItem(i){
+function removeItem(i) {
   cart.splice(i,1);
   updateCart();
 }
@@ -131,7 +186,7 @@ checkoutBtn.addEventListener("click", () => {
   if(cart.length === 0){
     alert("Cart is empty!");
   } else {
-    alert("Thanks for your order! Total: $" + cart.reduce((s,i)=>s+i.price,0).toFixed(2));
+    alert("Thanks for your order! Total: $" + cart.reduce((sum,item)=>sum+item.price,0).toFixed(2));
     cart = [];
     updateCart();
   }
