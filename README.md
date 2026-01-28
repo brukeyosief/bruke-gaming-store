@@ -1,2 +1,2 @@
 # bruke-gaming-store
-selling in-game virtual items,mainly roblox steal a brainrot
+We sell in-game virtual items, mainly for Roblox Steal a Brainrot Game.
