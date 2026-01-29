@@ -29,8 +29,6 @@ section { padding: 60px 20px; }
 #checkout-btn { padding: 10px 20px; background: #ff6f61; border: none; color: #fff; border-radius: 5px; cursor: pointer; margin-top: 10px; }
 #checkout-btn:hover { opacity: 0.8; }
 
-#paypal-button-container { margin-top: 20px; }
-
 .associates { max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; text-align: center; }
 .associate-card { background: #1f1f1f; padding: 20px; border-radius: 15px; width: 220px; transition: transform 0.3s, box-shadow 0.3s; color: #ffb347; }
 .associate-card:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(255,111,97,0.4); color: #fff; }
@@ -56,13 +54,13 @@ footer { text-align: center; padding: 20px; background: #1f1f1f; color: #888; }
   <h2 class="section-title">Our Store</h2>
   <div class="store">
     <div class="product">
-      <img src="https://media.discordapp.net/attachments/1144487580913799232/1160067080748630076/Dragon_Cannelloni.png" alt="Dragon Cannelloni">
+      <img src="https://i.imgur.com/8K5qFfS.png" alt="Dragon Cannelloni">
       <h3>Dragon Cannelloni</h3>
       <p>$400.00</p>
       <button>Add to Cart</button>
     </div>
     <div class="product">
-      <img src="https://media.discordapp.net/attachments/1144487580913799232/1160067081224634438/Cursed_Spaghetti_Toilet.png" alt="Cursed Spaghetti Toilet">
+      <img src="https://i.imgur.com/2rVH4H7.png" alt="Cursed Spaghetti Toilet">
       <h3>Cursed Spaghetti Toilet</h3>
       <p>$37.00</p>
       <button>Add to Cart</button>
@@ -81,8 +79,8 @@ footer { text-align: center; padding: 20px; background: #1f1f1f; color: #888; }
   <h2 class="section-title">Your Cart</h2>
   <div id="cart-items"></div>
   <p id="cart-total">Total: $0.00</p>
+  <div id="paypal-button-container" style="margin-top: 20px;"></div>
   <button id="checkout-btn">Checkout</button>
-  <div id="paypal-button-container"></div>
 </section>
 
 <!-- ASSOCIATES SECTION -->
@@ -151,7 +149,6 @@ footer { text-align: center; padding: 20px; background: #1f1f1f; color: #888; }
   &copy; 2026 Bruke Gaming Store
 </footer>
 
-<!-- CART FUNCTIONALITY -->
 <script>
 // CART FUNCTIONALITY
 let cart = [];
@@ -197,37 +194,27 @@ checkoutBtn.addEventListener("click", () => {
 });
 </script>
 
-<!-- PAYPAL SDK -->
+<!-- PayPal SDK -->
 <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
 <script>
 paypal.Buttons({
-  createOrder: function(data, actions) {
-    let items = cart.map(item => ({
-      name: item.product,
-      unit_amount: { currency_code: "USD", value: item.price.toFixed(2) },
-      quantity: "1"
-    }));
-    let total = cart.reduce((sum, item) => sum + item.price, 0);
-    return actions.order.create({
-      purchase_units: [{
-        amount: {
-          currency_code: "USD",
-          value: total.toFixed(2),
-          breakdown: {
-            item_total: { currency_code: "USD", value: total.toFixed(2) }
-          }
-        },
-        items: items
-      }]
-    });
-  },
-  onApprove: function(data, actions) {
-    return actions.order.capture().then(function(details) {
-      alert('Transaction completed by ' + details.payer.name.given_name + '!');
-      cart = [];
-      updateCart();
-    });
-  }
+    createOrder: function(data, actions) {
+        let total = cart.reduce((sum,item)=>sum+item.price,0).toFixed(2);
+        return actions.order.create({
+            purchase_units: [{
+                amount: {
+                    value: total
+                }
+            }]
+        });
+    },
+    onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name + '! Total: $' + cart.reduce((sum,item)=>sum+item.price,0).toFixed(2));
+            cart = [];
+            updateCart();
+        });
+    }
 }).render('#paypal-button-container');
 </script>
 
