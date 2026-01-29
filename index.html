@@ -54,13 +54,13 @@ footer { text-align: center; padding: 20px; background: #1f1f1f; color: #888; }
   <h2 class="section-title">Our Store</h2>
   <div class="store">
     <div class="product">
-      <img src="https://i.imgur.com/9z1F6aK.png" alt="Dragon Cannelloni">
+      <img src="https://via.placeholder.com/200?text=Dragon+Cannelloni" alt="Dragon Cannelloni">
       <h3>Dragon Cannelloni</h3>
       <p>$400.00</p>
       <button>Add to Cart</button>
     </div>
     <div class="product">
-      <img src="https://i.imgur.com/6fVxP2k.png" alt="Cursed Spaghetti Toilet">
+      <img src="https://via.placeholder.com/200?text=Cursed+Spaghetti+Toilet" alt="Cursed Spaghetti Toilet">
       <h3>Cursed Spaghetti Toilet</h3>
       <p>$37.00</p>
       <button>Add to Cart</button>
@@ -79,7 +79,7 @@ footer { text-align: center; padding: 20px; background: #1f1f1f; color: #888; }
   <h2 class="section-title">Your Cart</h2>
   <div id="cart-items"></div>
   <p id="cart-total">Total: $0.00</p>
-  <button id="checkout-btn">Checkout</button>
+  <div id="paypal-button-container"></div>
 </section>
 
 <!-- ASSOCIATES SECTION -->
@@ -154,7 +154,6 @@ let cart = [];
 const buttons = document.querySelectorAll(".product button");
 const cartItems = document.getElementById("cart-items");
 const cartTotal = document.getElementById("cart-total");
-const checkoutBtn = document.getElementById("checkout-btn");
 
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -181,16 +180,28 @@ function removeItem(i) {
   cart.splice(i,1);
   updateCart();
 }
+</script>
 
-checkoutBtn.addEventListener("click", () => {
-  if(cart.length === 0){
-    alert("Cart is empty!");
-  } else {
-    alert("Thanks for your order! Total: $" + cart.reduce((sum,item)=>sum+item.price,0).toFixed(2));
-    cart = [];
-    updateCart();
+<!-- PAYPAL SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+<script>
+paypal.Buttons({
+  createOrder: function(data, actions) {
+    let total = cart.reduce((sum, item) => sum + item.price, 0);
+    return actions.order.create({
+      purchase_units: [{
+        amount: { value: total.toFixed(2) }
+      }]
+    });
+  },
+  onApprove: function(data, actions) {
+    return actions.order.capture().then(function(details) {
+      alert('Transaction completed by ' + details.payer.name.given_name + '!');
+      cart = [];
+      updateCart();
+    });
   }
-});
+}).render('#paypal-button-container');
 </script>
 
 </body>
